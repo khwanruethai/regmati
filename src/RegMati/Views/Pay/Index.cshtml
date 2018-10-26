@@ -1,0 +1,358 @@
+﻿@{ 
+    Layout = "_Layout_Pay";
+}
+@using RegMati.Models
+<style>
+    .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+        border: 1px solid deepskyblue;
+    }
+    .table-striped > tbody > tr:nth-of-type(odd) {
+        background-color: #00bcd40d;
+    }
+</style>
+<section class="content">
+    <div class="row">
+        <!-- Left col -->
+        <div class="col-md-8">
+            <!-- MAP & BOX PANE -->
+            <div class="box box-primary">
+               
+                <div class="box-body no-padding">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box box-widget widget-user-2">
+                                <!-- Add the bg color to the header using any of the bg-* classes -->
+                                <div class="widget-user-header bg-aqua" style="padding: 10px;">
+                                    <div class="widget-user-image">
+                                        <img class="img-circle" src="@ViewData["emp_img"]" alt="User Avatar" style="width:20%;border-radius:15%">
+                                    </div>
+                                    <!-- /.widget-user-image -->
+                                    <h3 class="text-bold">&nbsp;&nbsp;&nbsp;@ViewData["emp_code"]</h3>
+                                    <h3 class="widget-user-desc text-bold">&nbsp;&nbsp;&nbsp;@ViewData["emp_name"]</h3>
+                                </div>
+                                <div class="box-footer no-padding">
+                                    <ul class="nav nav-stacked" style="padding-left: 230px;">
+                                        <li><a href="#"><span class="text-bold"> ตำแหน่ง </span><span class="pull-right">@ViewData["emp_post"]</span></a></li>
+                                        <li><a href="#"><span class="text-bold">แผนก </span><span class="pull-right">@ViewData["emp_dept"]</span></a></li>
+                                        <li><a href="#"><span class="text-bold">ฝ่าย </span><span class="pull-right">@ViewData["emp_sect"]</span></a></li>
+                                        <li><a href="#"><span class="text-bold">บริษัท </span> <span class="pull-right">@ViewData["emp_comp"]</span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="row">
+                                    <div class="invoice">
+                                        <!-- title row -->
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <h2 class="page-header">
+                                                  <img src="~/images/@ViewData["logo"]" style="width:16%"/> <span class="text-primary text-bold">@ViewData["comp_name"]</span>
+                                                    <span class="pull-right label label-primary" style="padding-top: 15px;font-size: 20px;  padding-bottom: 15px;"> ใบแจ้งเงินเดือน / PAY SLIP</span>
+                                                </h2>
+                                            </div>
+                                            <!-- /.col -->
+                                        </div>
+                                        <!-- info row -->
+                                        <div class="row invoice-info">
+                                            <div class="col-sm-12 invoice-col">
+                                              <div class="box box-info box-solid">
+                                                  <div class="box-body">
+                                                      <div class="form-group">
+                                                          <div class="row">
+                                                              <div class="col-md-2">
+                                                                  ชื่อพนักงาน
+                                                              </div>
+                                                              <div class="col-md-6">
+                                                                  @ViewData["ep_code"] @ViewData["ep_name"]
+                                                              </div>
+                                                              <div class="col-md-2 text-right">
+                                                                 ประจำวันที่
+                                                              </div>
+                                                              <div class="col-md-1">
+                                                                @ViewData["period_date"]
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="form-group">
+                                                          <div class="row">
+                                                              <div class="col-md-2">
+                                                                  ชื่อแผนก
+                                                              </div>
+                                                              <div class="col-md-6">
+                                                                  @ViewData["dept_code"] @ViewData["dept_name"] @ViewData["section_code"] @ViewData["section_name"]
+                                                              </div>
+                                                              <div class="col-md-2 text-right">
+                                                                  ลำดับที่
+                                                              </div>
+                                                              <div class="col-md-1">
+                                                                  @ViewData["item_no"]
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                            </div>
+                                            <!-- /.col -->
+                                           
+                                        </div>
+                                        <!-- /.row -->
+                                        <!-- Table row -->
+                                        <div class="row">
+                                            <div class="col-xs-12 table-responsive">
+                                                <table class="table table-striped table-bordered table-primary border-info" style="border-color:deepskyblue">
+                                                    <thead style="background-color: #4596e4e6;">
+                                                        <tr>
+                                                            <th class="text-center text-white" style="color:white;">รายการเงินได้</th>
+                                                            <th class="text-center text-white" style="color:white;">จำนวนเงิน</th>
+                                                            <th class="text-center text-white" style="color:white;">รายการเงินได้</th>
+                                                            <th class="text-center text-white" style="color:white;">จำนวนเงิน</th>
+                                                            <th class="text-center text-black">รายการเงินหัก</th>
+                                                            <th class="text-center text-black">จำนวนเงิน</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>เงินเดือน</td>
+                                                            <td class="text-right">@ViewData["a01"]</td>
+                                                            <td>ค่าเวร</td>
+                                                            <td class="text-right">@ViewData["a02"]</td>
+                                                            <td class="text-blue">ภาษีหัก ณ ที่จ่าย</td>
+                                                            <td class="text-right">@ViewData["d01"]</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ค่าครองชีพ</td>
+                                                            <td class="text-right">@ViewData["a02"]</td>
+                                                            <td>ค่ารถ</td>
+                                                            <td class="text-right">@ViewData["a10"]</td>
+                                                            <td class="text-blue">ประกันสังคม</td>
+                                                            <td class="text-right">@ViewData["d02"]</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>สวัสดิการอื่น</td>
+                                                            <td class="text-right">@ViewData["a03"]</td>
+                                                            <td>ค่าโทรศัพท์</td>
+                                                            <td class="text-right">@ViewData["a11"]</td>
+                                                            <td class="text-blue">เบี้ยประกันหมู่</td>
+                                                            <td class="text-right">@ViewData["d03"]</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ค่าล่วงเวลา</td>
+                                                            <td class="text-right">@ViewData["a04"]</td>
+                                                            <td>โบนัส</td>
+                                                            <td class="text-right">@ViewData["a12"]</td>
+                                                            <td class="text-blue">เงินกองทุนสำรองเลี้ยงชีพ</td>
+                                                            <td class="text-right">@ViewData["d04"]</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>เบี้ยเลี้ยง/เบี้ยขยัน</td>
+                                                            <td class="text-right">@ViewData["a05"]</td>
+                                                            <td>เงินชดเชย</td>
+                                                            <td class="text-right">@ViewData["a13"]</td>
+                                                            <td class="text-blue">เงินกู้กองทุนพนักงาน</td>
+                                                            <td class="text-right">@ViewData["d05"]</td>
+                                                        </tr> 
+                                                        <tr>
+                                                            <td>ตกเบิก</td>
+                                                            <td class="text-right">@ViewData["a06"]</td>
+                                                            <td>เงินบำเหน็จ</td>
+                                                            <td class="text-right">@ViewData["a14"]</td>
+                                                            <td class="text-blue">ธนาคารอาคารสงเคราะห์</td>
+                                                            <td class="text-right">@ViewData["d06"]</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ค่าคอมมิชชั่น</td>
+                                                            <td class="text-right"> @ViewData["a07"]</td>
+                                                            <td>เงินได้อื่นๆ</td>
+                                                            <td class="text-right">@ViewData["a15"]</td>
+                                                            <td class="text-blue">เงินหักอื่นๆ</td>
+                                                            <td class="text-right">@ViewData["d07"]</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ค่าเรื่อง/ซัพพลีเมนท์</td>
+                                                            <td class="text-right">@ViewData["a08"]</td>
+                                                            <td class="text-right text-bold">รวมเงินได้</td>
+                                                            <td class="text-right text-bold">@ViewData["income_total"]</td>
+                                                            <td class="text-right text-bold text-blue">รวมเงินหัก</td>
+                                                            <td class="text-right text-bold">@ViewData["minus_total"]</td>
+                                                        </tr>
+                                                        <tr>
+                                                            
+                                                            <td colspan="5" class="text-right text-bold">รายได้สุทธิ</td>
+                                                            <td class="text-right text-bold">@ViewData["net_amount"]</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- /.col -->
+                                        </div>
+                                        <!-- /.row -->
+
+                                        <div class="row">
+                                            <!-- accepted payments column -->
+                                            <div class="col-xs-12">
+                                                <div class="box box-info box-solid">
+                                                    <div class="box-body">
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    เงินได้สะสม
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                   @ViewData["income_sum"]
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    ภาษีเงินได้สะสม
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                  @ViewData["tax_sum"]
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    ประกันสังคมสะสม
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    @ViewData["sso_sum"]
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    เงินกองทุนสำรองเลี้ยงชีพส่วนของพนักงานสะสม
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                   @ViewData["pvf_sum"]
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                  ผู้รับเงิน
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                   
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.col -->
+                                           
+                                        </div>
+                                        <!-- /.row -->
+                                        <!-- this row will not appear when printing -->
+                                        <div class="row no-print">
+                                            <div class="col-xs-12 text-right">
+                                                <a href="../../slip/@ViewData["file_name"]"   class="btn btn-success" download=""><i class="fa fa-save"></i> ดาวน์โหลดสลิปเงินเดือน</a>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.box-body -->
+            </div>
+        
+        </div>
+        <!-- /.col -->
+
+        <div class="col-md-4">
+            <!-- Info Boxes Style 2 -->
+            @foreach (var nc in ViewData["income"] as List<IncomeModel>)
+            {
+
+            <div class="info-box @nc.bg">
+                <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">@nc.income_name</span>
+                    <span class="info-box-number">@nc.pay_amount</span>
+
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 100%"></div>
+                    </div>
+                    
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            }
+           
+            <div class="info-box bg-aqua">
+                <span class="info-box-icon"><i class="fa fa-money"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">รวมเงินได้</span>
+                    <span class="info-box-number">@ViewData["summary"]</span>
+
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 100%"></div>
+                    </div>
+                 
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">งวดเงินเดือนล่าสุด</h3>
+
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <ul class="products-list product-list-in-box">
+                        @foreach (var pd in ViewData["period"] as List<periodModel>)
+                        {
+                        <li class="item">
+                            <div class="product-img">
+                                <i class="fa fa-circle-o text-aqua"></i>
+                            </div>
+                            <div class="product-info">
+                                <a asp-controller="Pay" asp-action="gslip" asp-route-dt ="@pd.period_date" class="product-title">
+                                  @pd.date_txt
+                                    <span class="label label-warning pull-right">@pd.net_amount ฿</span>
+                                </a> 
+                            </div>
+                        </li>
+                        }
+                        <!-- /.item -->
+                     
+                        <!-- /.item -->
+                    </ul>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer text-center">
+                    <a asp-action="slip" asp-controller="Pay" class="uppercase"><i class="fa fa-search"></i>ค้นหาสลิปเงินเดือน</a>
+                </div>
+                <!-- /.box-footer -->
+            </div>
+            <!-- /.box -->
+        
+               <div class="box box-solid bg-green-gradient">
+                   <div class="box-header ui-sortable-handle" style="cursor: move;">
+                       <i class="fa fa-calendar"></i>
+
+                       <h3 class="box-title">ปฏิทิน @DateTime.Now.Year.ToString()</h3>
+                       <!-- tools box -->
+                       
+                       <!-- /. tools -->
+                   </div>
+
+                   <!-- /.box-header -->
+                   <div class="box-body no-padding">
+                       <!--The calendar -->
+                       <div id="calendar" style="width: 100%"><div class="datepicker datepicker-inline"><div class="datepicker-days" style=""><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">September 2018</th><th class="next">»</th></tr><tr><th class="dow">Su</th><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="old day" data-date="1535241600000">26</td><td class="old day" data-date="1535328000000">27</td><td class="old day" data-date="1535414400000">28</td><td class="old day" data-date="1535500800000">29</td><td class="old day" data-date="1535587200000">30</td><td class="old day" data-date="1535673600000">31</td><td class="day" data-date="1535760000000">1</td></tr><tr><td class="day" data-date="1535846400000">2</td><td class="day" data-date="1535932800000">3</td><td class="day" data-date="1536019200000">4</td><td class="day" data-date="1536105600000">5</td><td class="day" data-date="1536192000000">6</td><td class="day" data-date="1536278400000">7</td><td class="day" data-date="1536364800000">8</td></tr><tr><td class="day" data-date="1536451200000">9</td><td class="day" data-date="1536537600000">10</td><td class="day" data-date="1536624000000">11</td><td class="day" data-date="1536710400000">12</td><td class="day" data-date="1536796800000">13</td><td class="day" data-date="1536883200000">14</td><td class="day" data-date="1536969600000">15</td></tr><tr><td class="day" data-date="1537056000000">16</td><td class="day" data-date="1537142400000">17</td><td class="day" data-date="1537228800000">18</td><td class="day" data-date="1537315200000">19</td><td class="day" data-date="1537401600000">20</td><td class="day" data-date="1537488000000">21</td><td class="day" data-date="1537574400000">22</td></tr><tr><td class="day" data-date="1537660800000">23</td><td class="day" data-date="1537747200000">24</td><td class="day" data-date="1537833600000">25</td><td class="day" data-date="1537920000000">26</td><td class="day" data-date="1538006400000">27</td><td class="day" data-date="1538092800000">28</td><td class="day" data-date="1538179200000">29</td></tr><tr><td class="day" data-date="1538265600000">30</td><td class="new day" data-date="1538352000000">1</td><td class="new day" data-date="1538438400000">2</td><td class="new day" data-date="1538524800000">3</td><td class="new day" data-date="1538611200000">4</td><td class="new day" data-date="1538697600000">5</td><td class="new day" data-date="1538784000000">6</td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2018</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month focused">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2010-2019</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2009</span><span class="year">2010</span><span class="year">2011</span><span class="year">2012</span><span class="year">2013</span><span class="year">2014</span><span class="year">2015</span><span class="year">2016</span><span class="year">2017</span><span class="year focused">2018</span><span class="year">2019</span><span class="year new">2020</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-decades" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2000-2090</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="decade old">1990</span><span class="decade">2000</span><span class="decade focused">2010</span><span class="decade">2020</span><span class="decade">2030</span><span class="decade">2040</span><span class="decade">2050</span><span class="decade">2060</span><span class="decade">2070</span><span class="decade">2080</span><span class="decade">2090</span><span class="decade new">2100</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-centuries" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2000-2900</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="century old">1900</span><span class="century focused">2000</span><span class="century">2100</span><span class="century">2200</span><span class="century">2300</span><span class="century">2400</span><span class="century">2500</span><span class="century">2600</span><span class="century">2700</span><span class="century">2800</span><span class="century">2900</span><span class="century new">3000</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div></div></div>
+                   </div>
+                   <!-- /.box-body -->
+              
+               </div>
+           
+        </div>
+        <!-- /.col -->
+    </div>
+</section>

@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RegMati</title>
+
+    <environment names="Development">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.7 -->
+
+        <link href="~/lib/startbootstrapcreative/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/lib/startbootstrapcreative/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+        <link href="~/lib/startbootstrapcreative/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" />
+        <link href="~/lib/startbootstrapcreative/css/creative.min.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
+    <style>
+        .content-wrapper, .main-footer {
+            -webkit-transition: -webkit-transform .3s ease-in-out,margin .3s ease-in-out;
+            -moz-transition: -moz-transform .3s ease-in-out,margin .3s ease-in-out;
+            -o-transition: -o-transform .3s ease-in-out,margin .3s ease-in-out;
+            transition: transform .3s ease-in-out,margin .3s ease-in-out;
+            margin-left: 50px;
+            margin-right: 50px;
+            margin-top: 50px;
+        }
+        .content-wrapper {
+    min-height: 100%;
+       background-color: #ecf0f500;
+    z-index: 800;.content-wrapper
+        {
+            min-height: 100%;
+            /* background-color: #ecf0f5; */
+            z-index: 800;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="https://www.matichon.co.th/wp-content/uploads/2017/05/matichon-logo.png"/></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#logon">Login</a>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead text-center text-white d-flex">
+        <div class="container my-auto">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h1 class="text-uppercase">
+                        <strong>MATICHON</strong>
+                    </h1>
+                    <hr>
+                </div>
+                <div class="col-lg-8 mx-auto">
+                    <p class="text-faded mb-5">Login เพื่อเข้าสู่ระบบ</p>
+                    <a class="btn btn-primary btn-xl js-scroll-trigger" href="#logon">Login</a>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    @RenderBody()
+     
+    @*<footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 2.4.0
+        </div>
+        <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+        reserved.
+    </footer>*@
+ 
+    <environment names="Development">
+
+        <script src="~/lib/startbootstrapcreative/vendor/jquery/jquery.min.js"></script>
+        <script src="~/lib/startbootstrapcreative/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="~/lib/startbootstrapcreative/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="~/lib/startbootstrapcreative/vendor/scrollreveal/scrollreveal.min.js"></script>
+        <script src="~/lib/startbootstrapcreative/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <script src="~/lib/startbootstrapcreative/js/creative.min.js"></script>
+    </environment>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

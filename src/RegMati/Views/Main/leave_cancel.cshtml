@@ -1,0 +1,128 @@
+﻿@{
+    Layout = "_Layout_Admin";
+}
+<section class="content-header">
+    <div class="row">
+        <h1>รายละเอียดคำร้องขอ</h1>
+    </div>
+</section>
+<section class="content">
+    @*<div class="row">
+            <div class="pad margin no-print">
+                <div class="callout callout-info" style="margin-bottom: 0!important;">
+                    <h4><i class="fa fa-info"></i> Note:</h4>
+                    ***
+                </div>
+            </div>
+        </div>*@
+    <div class="row">
+        <div class="col-md-4" style="padding-right: 0px;  padding-left: 0px;">
+            <div class="invoice">
+                <div class="box-body box-profile">
+                    <img class="profile-user-img img-responsive img-circle" src="http://10.10.20.42/profile/600806.jpg" alt="User profile picture" style="border-radius: 13%;width:50%">
+
+                    <h4 class="text-center">600806 นางสาว ขวัญฤทัย เสมอกลาง</h4>
+                    <p class="text-muted text-center">Programmer</p>
+                    <p class="text-muted text-center">บริษัท : มติชน จำกัด มหาชน</p>
+                    <p class="text-muted text-center">ฝ่าย : จัดการทั่วไป</p>
+                    <p class="text-muted text-center">แผนก : กองงานระบบคอมพิวเตอร์</p>
+
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item">
+                            <b>ลาป่วย</b> <a class="pull-right">3/30</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>ลากิจ</b> <a class="pull-right">3/30</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>ลาพักร้อน</b> <a class="pull-right">0/6</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>ลาคลอด</b> <a class="pull-right">0/90</a>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+        <div class="col-md-8" style="padding-right: 0px;  padding-left: 0px;">
+            <div class="form-group">
+                <div class="invoice">
+                    <!-- title row -->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h2 class="page-header">
+                                <i class="fa fa-globe"></i> LV6109180001 : ยื่นคำร้องขอ ลาป่วย
+                                <small class="pull-right">วันที่ร้องขอ: 18/9/2561</small>
+                            </h2>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- info row -->
+                    <div class="row invoice-info">
+                        <div class="col-sm-6 invoice-col">
+                            จาก
+                            <address>
+                                <strong>ขวัญฤทัย เสมอกลาง</strong><br>
+                                795 Folsom Ave, Suite 600<br>
+                                San Francisco, CA 94107<br>
+                                Phone: 1302<br>
+                                Email: khwanruethai@@gmail.com
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-6 invoice-col">
+                            ถึง
+                            <address>
+                                <strong>ปราปต์ บุนปาน</strong><br>
+                                795 Folsom Ave, Suite 600<br>
+                                San Francisco, CA 94107<br>
+                                Phone: (555) 539-1037<br>
+                                Email: john.doe@example.com
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="list-group list-group-unbordered">
+                                    <li class="list-group-item">
+                                        <b>เรื่อง : </b>  ลาป่วย
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>เนื่องจาก : </b>  เป็นไข้หวัดใหญ่
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>ขอลาหยุด ตั้งแต่ วันที่ : </b>  12/2/2018 เวลา 09.00 <b>ถึง วันที่ : </b>  12/2/2018 เวลา 18.00 น.
+
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>รวมทั้งหมด : </b>  1 วัน 
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div> 
+                    <!-- this row will not appear when printing -->
+                    <div class="row no-print">
+                        <div class="col-xs-12">
+                            @*<a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>*@
+                            <button type="button" class="btn btn-success pull-right">
+                                <i class="fa fa-check"></i> อนุมัติคำร้องขอ
+                            </button>
+                            <button type="button" class="btn btn-danger pull-right" style="margin-right: 5px;">
+                                <i class="fa fa-remove"></i> ไม่อนุมัติคำร้องขอ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

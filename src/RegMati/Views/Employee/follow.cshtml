@@ -1,0 +1,339 @@
+﻿@{
+    Layout = "_Layout_User";
+}
+<section class="content-header">
+    <div class="row">
+        <h1>ติดตามคำร้องขอ</h1>
+    </div>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box box-info box-solid">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2 text-right">
+                                            ค้นหา
+                                        </div>
+                                        <div class="col-md-6">
+                                            @Html.TextBox("aa", "", new { @class = "form-control", @placeholder = "เลขที่ใบร้องขอ" })
+                                        </div>
+                                        <div class="col-md-2">
+                                            <a class="btn btn-primary"><i class="fa fa-search"></i> ตกลง</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <hr />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h4>รายละเอียด</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            เรื่อง
+                                        </div>
+                                        <div class="col-md-10">
+                                            @Html.TextBox("title", "ลากิจ", new { @class = "form-control", @readonly = true })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            เนื่องจาก
+                                        </div>
+                                        <div class="col-md-10">
+                                            @Html.TextBox("title", " ", new { @class = "form-control", @readonly = true })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            ตั้งแต่วันที่
+                                        </div>
+                                        <div class="col-md-4">
+                                            @Html.TextBox("title", " ", new { @class = "form-control", @readonly = true })
+                                        </div>
+                                        <div class="col-md-1">
+                                            เวลา
+                                        </div>
+                                        <div class="col-md-2">
+                                            @Html.TextBox("title", " ", new { @class = "form-control", @readonly = true })
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            ถึงวันที่<span class="text-red">*</span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            @Html.TextBox("title", " ", new { @class = "form-control", @readonly = true })
+                                        </div>
+                                        <div class="col-md-1">
+                                            เวลา
+                                        </div>
+                                        <div class="col-md-2">
+                                            @Html.TextBox("title", " ", new { @class = "form-control", @readonly = true })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            สถานะ
+                                        </div>
+                                        <div class="col-md-10">
+                                            @Html.TextBox("title", "อนุมัติแล้ว / รออนุมัติ", new { @class = "form-control", @readonly = true })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <hr />
+                                            <h4>สถานะการยื่นคำร้อง</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="row  text-center text-green">
+                                                    <i class="fa fa-file fa-5x"></i>
+                                                </div>
+                                                <div class="row text-center text-green">
+                                                    ยื่นคำร้อง
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <i class="fa fa-caret-right fa-3x"></i>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="row  text-center text-green">
+                                                    <i class="fa fa-hourglass fa-5x"></i>
+                                                </div>
+                                                <div class="row text-center text-green">
+                                                   รออนุมัติ
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <i class="fa fa-caret-right fa-3x"></i>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="row  text-center text-gray">
+                                                    <i class="fa fa-check fa-5x"></i>
+                                                </div>
+                                                <div class="row text-center text-gray">
+                                                    อนุมัติ
+                                                </div>
+                                            </div>
+                                        </div>
+                                         
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="row  text-center text-green">
+                                                    <i class="fa fa-file fa-5x"></i>
+                                                </div>
+                                                <div class="row text-center text-green">
+                                                    ยื่นคำร้อง
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <i class="fa fa-caret-right fa-3x"></i>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="row  text-center text-green">
+                                                    <i class="fa fa-hourglass fa-5x"></i>
+                                                </div>
+                                                <div class="row text-center text-green">
+                                                    รออนุมัติ
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <i class="fa fa-caret-right fa-3x"></i>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="row  text-center text-red">
+                                                    <i class="fa fa-remove fa-5x"></i>
+                                                </div>
+                                                <div class="row text-center text-red">
+                                                    ไม่อนุมัติ
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="row">
+                    <div class="box box-info box-solid">
+                        <div class="box-body">
+                            <p class="text-center">
+                                <strong>สถิติการลา</strong>
+                            </p>
+                            <div class="progress-group">
+                                <span class="progress-text">ลาป่วย</span>
+                                <span class="progress-number"><b>10</b>/30</span>
+
+                                <div class="progress sm">
+                                    <div class="progress-bar progress-bar-aqua" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                            <div class="progress-group">
+                                <span class="progress-text">ลากิจ</span>
+                                <span class="progress-number"><b>1</b>/15</span>
+
+                                <div class="progress sm">
+                                    <div class="progress-bar progress-bar-green" style="width: 10%"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                            <div class="progress-group">
+                                <span class="progress-text">ลาพักร้อน</span>
+                                <span class="progress-number"><b>0</b>/6</span>
+
+                                <div class="progress sm">
+                                    <div class="progress-bar progress-bar-yellow" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                            <div class="progress-group">
+                                <span class="progress-text">ลาคลอด</span>
+                                <span class="progress-number"><b>0</b>/90</span>
+
+                                <div class="progress sm">
+                                    <div class="progress-bar progress-bar-red" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <!-- /.progress-group -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">ประวัติการยื่นคำร้องขอลาหยุด</h3>
+
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <ul class="products-list product-list-in-box">
+                                <li class="item">
+                                    <div class="product-img">
+
+                                        <img src="~/images/hospital.png" />
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="javascript:void(0)" class="product-title">
+                                            ลาป่วย : 12 ก.พ. 2561 - 13 ก.พ. 2561
+                                            <span class="label label-success pull-right">อนุมัติ</span>
+                                        </a>
+                                        <span class="product-description">
+                                            พบแพทย์ 1 วัน
+                                        </span>
+                                    </div>
+                                </li>
+                                <!-- /.item -->
+                                <li class="item">
+                                    <div class="product-img">
+
+                                        <img src="~/images/negative.png" />
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="javascript:void(0)" class="product-title">
+                                            ลากิจ : 8 ก.ย. 2561 - 10 ก.ย. 2561
+                                            <span class="label label-warning pull-right">รออนุมัติ</span>
+                                        </a>
+                                        <span class="product-description">
+                                            ทำธุระต่างจังหวัด 2 วัน
+                                        </span>
+                                    </div>
+                                </li>
+                                <!-- /.item -->
+                                <li class="item">
+                                    <div class="product-img">
+
+                                        <img src="~/images/pregnant.png" />
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="javascript:void(0)" class="product-title">
+                                            ลาคลอด : 1 ต.ค. 2561 - 31 ธ.ค. 2561
+                                            <span class="label label-warning pull-right">รออนุมัติ</span>
+                                        </a>
+                                        <span class="product-description">
+                                            คลอดลูก และ พักฟื้น 90 วัน
+                                        </span>
+                                    </div>
+                                </li>
+                                <!-- /.item -->
+                                <li class="item">
+                                    <div class="product-img">
+
+                                        <img src="~/images/globe.png" />
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="javascript:void(0)" class="product-title">
+                                            ลาพักร้อน : 26 ธ.ค. 2561 - 28 ธ.ค. 2561
+                                            <span class="label label-success pull-right">อนุมัติ</span>
+                                        </a>
+                                        <span class="product-description">
+                                            พักร้อน 3 วัน
+                                        </span>
+                                    </div>
+                                </li>
+                                <!-- /.item -->
+                            </ul>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer text-center">
+                            <a href="javascript:void(0)" class="uppercase">ดูประวัติทั้งหมด</a>
+                        </div>
+                        <!-- /.box-footer -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
